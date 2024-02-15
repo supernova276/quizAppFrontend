@@ -30,11 +30,11 @@ const SignUpForm = () => {
     })
   }
 
-  const handleSignUp=(e)=>{
+  const handleSignUp=async(e)=>{
 
     e.preventDefault()
 
-    let token=SignUpHandler(username,email,password)
+    let token= await SignUpHandler(username,email,password)
     console.log("token is",token)
 
     if(token){
@@ -49,6 +49,7 @@ const SignUpForm = () => {
         type:"CLEAR_CREDENTIALS"
       })
     }
+
   }
 
   const handleTestSignUp=(e)=>{

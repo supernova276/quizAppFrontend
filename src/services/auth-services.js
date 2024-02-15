@@ -16,20 +16,22 @@ export const loginHandler=async(username,password)=>{
    }
 }
 
-export const SignUpHandler=async(username,email,password)=>{
+export const SignUpHandler=async(username,emailId,password)=>{
 
   try{ const {data:{accesToken},status}=await axios.post("https://quizappbackend-production-d5ed.up.railway.app/quizApp/api/v1/auth/signup",{
     username:username,
     password:password,
-    email:email
+    emailId:emailId
    });
 
    if(status===200){
+    console.log("inside status 200")
     localStorage.setItem("token",accesToken)
     return accesToken;
    }
 }
 catch(err){
-   console.log(err)
+   alert("the username or password already exists")
+   return null
 }
 }

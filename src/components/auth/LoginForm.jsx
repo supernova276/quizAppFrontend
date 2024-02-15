@@ -42,10 +42,10 @@ const LoginForm = () => {
     })
   }
 
-  const handleTestCredentialClick=(e)=>{
+  const handleTestCredentialClick=async (e)=>{
 
     e.preventDefault();
-    const token=loginHandler("Akshita","akshita123")
+    const token=await loginHandler("Akshita","akshita123")
     if(token)navigate("/")
     
     authDispatch({
