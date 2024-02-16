@@ -14,11 +14,11 @@ const Result = () => {
         <span>your Score is {score}{score==0?'😕😔':'🥳🎉✨'}</span>
        </div>
        <br/>
-       <div className='d-flex flex-column align-items-center'style={{width:"50rem",background:"#21224e",border:"2px solid #ffff"}}>
+       {/* <div className='d-flex flex-column align-items-center'style={{width:"50rem",background:"#21224e",border:"2px solid #ffff"}}>
        {
         
        }
-       </div>
+       </div> */}
       </div>
     </div>
   )
