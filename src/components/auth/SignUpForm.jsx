@@ -56,7 +56,9 @@ const SignUpForm = () => {
     
     e.preventDefault()
       const token=loginHandler("Akshita","akshita123")
-      if(token)navigate("/")
+      
+      if(token){
+        navigate("/")
       
       authDispatch({
         type:"TOKEN",
@@ -66,6 +68,7 @@ const SignUpForm = () => {
       authDispatch({
         type:"CLEAR_CREDENTIALS"
       })
+    }
 
   }
 

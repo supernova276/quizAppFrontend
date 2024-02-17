@@ -29,9 +29,10 @@ const LoginForm = () => {
 
     e.preventDefault();
     const token=loginHandler(username,password)
+
     if(token){
-      navigate("/");
-    }
+
+    navigate("/");
     authDispatch({
       type:"TOKEN",
       payload:token
@@ -41,12 +42,15 @@ const LoginForm = () => {
       type:"CLEAR_CREDENTIALS"
     })
   }
+  }
 
   const handleTestCredentialClick=async (e)=>{
 
     e.preventDefault();
+
     const token=await loginHandler("Akshita","akshita123")
-    if(token)navigate("/")
+    if(token){
+      navigate("/")
     
     authDispatch({
       type:"TOKEN",
@@ -56,6 +60,7 @@ const LoginForm = () => {
     authDispatch({
       type:"CLEAR_CREDENTIALS"
     })
+  }
   }
     
   return (
