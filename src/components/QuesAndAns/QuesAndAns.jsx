@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 const QuesAndAns = ({quizData}) => {
    
-    const{score,index,selected_option,quizDispatch,quizCategory,quiz}=useQuizReducer()
+    const{score,index,selected_option,quizDispatch,quizCategory,quiz,gameStatus}=useQuizReducer()
 
     console.log("inside ques&ans",quiz[0].quiz[index])
     const navigate=useNavigate()
@@ -18,6 +18,13 @@ const QuesAndAns = ({quizData}) => {
             setSubmit(true)
         }
         if(index===2){
+            // quizDispatch({
+            //     type:"CLEAR"
+            // })
+            quizDispatch({
+                type:"GAME_STATUS",
+                payload:false
+            })
             navigate("/result")
             return;
         }

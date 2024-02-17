@@ -14,7 +14,6 @@ const NavbarComponent=()=>{
   const token=localStorage.getItem("token")
   const{gameStatus,quizDispatch}=useQuizReducer()
   console.log("render",token)
-  // const[logout,setLogout]=useState(false)
 
   const handleLogout=()=>{
 
@@ -29,7 +28,9 @@ const NavbarComponent=()=>{
     }
   }
   const handleHome=()=>{
-  localStorage.setItem("index","0")
+  quizDispatch({
+    type:"CLEAR"
+})
   }
   const handleSubmit=()=>{
     quizDispatch({
