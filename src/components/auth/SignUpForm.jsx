@@ -72,17 +72,35 @@ const SignUpForm = () => {
 
   }
 
+  const debounce=(callback,delay)=>{
+     
+    let timerId;
+    return function (...args){
+      clearTimeout(timerId)
+    
+      timerId=setTimeout(() => {
+        
+        callback(...args);
+        
+      }, delay);
+
+    }
+  }
+  const debounceUsername=debounce(handleUsername,500)
+  const debouncedPassword=debounce(handlePassword,500)
+  const debounceEmail=debounce(handleEmail,500)
+
   return (
     <div className='d-flex justify-content-center align-items-center' style={{height:"100vh"}}>
       <Form className=' common-bg' style={{width:"25rem",height:"40rem",padding:"2rem"}}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>User Name</Form.Label>
-        <Form.Control type="text" placeholder="Enter username" onChange={handleUsername} />
+        <Form.Control type="text" placeholder="Enter username" onChange={debounceUsername} />
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>EmailId</Form.Label>
-        <Form.Control type="text" placeholder="abc@gmail.com" onChange={handleEmail} />
+        <Form.Control type="text" placeholder="abc@gmail.com" onChange={debounceEmail} />
         <Form.Text className=" text-light">
           We'll never share your email with anyone else.
         </Form.Text>
@@ -90,7 +108,7 @@ const SignUpForm = () => {
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Password" onChange={handlePassword} />
+        <Form.Control type="password" placeholder="Password" onChange={debouncedPassword} />
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicCheckbox">
