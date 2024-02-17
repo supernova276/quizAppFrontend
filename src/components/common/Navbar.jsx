@@ -49,7 +49,7 @@ const NavbarComponent=()=>{
           <Nav className="me-auto"></Nav>
           <Nav>
          {!gameStatus && token && <NavLink  to="/" onClick={handleHome} style={{fontFamily:"kanit",fontSize:"1.5rem",
-         color:"#21224e"}} className="mx-md-3">
+         color:"#21224e",textDecoration:"none"}} className="mx-md-3">
             Home</NavLink>}
 
           <NavLink to={gameStatus?"/result":"/auth/login"} className='text-dark font-weight-bolder'>
@@ -57,8 +57,8 @@ const NavbarComponent=()=>{
          {token && !gameStatus &&<Button variant="primary" type="submit" onClick={handleLogout} className='mx-md-3' >Logout</Button>}
          </NavLink>
 
-        {token && <NavLink to="/" onClick={handleHome} style={{fontFamily:"kanit",fontSize:"1.5rem",color:"#21224e"}}>
-        <i className="bi bi-person-fill mx-sm-3">User</i></NavLink>}
+        {token && <div to="/"  style={{fontFamily:"kanit",fontSize:"1.5rem",color:"#21224e"}}>
+        <i className="bi bi-person-fill mx-sm-3">User</i></div>}
 
         { !token &&  <NavLink  to="/signup" className='text-dark font-weight-bolder'>
         <Button variant="primary" type="submit" className='mx-sm-3'>SignUp</Button></NavLink>}
