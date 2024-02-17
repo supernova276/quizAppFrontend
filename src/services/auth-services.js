@@ -12,7 +12,8 @@ export const loginHandler=async(username,password)=>{
     return accesToken;
    }}
    catch(err){
-       console.log(err)
+    alert("the username or password already exists")
+    return null
    }
 }
 
