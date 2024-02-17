@@ -18,9 +18,6 @@ const QuesAndAns = ({quizData}) => {
             setSubmit(true)
         }
         if(index===2){
-            quizDispatch({
-                type:"CLEAR"
-            })
             navigate("/result")
             return;
         }
